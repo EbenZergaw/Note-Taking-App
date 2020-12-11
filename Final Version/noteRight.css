@@ -1,0 +1,111 @@
+#noteRight{
+    float: right;
+    width: 65%;
+    height: 100%;
+    border-radius: 12px;
+    box-shadow: 0px 0px 21px -6px rgba(0,0,0,0.25);
+}
+
+#topBar{
+    display: inline-flex;
+    margin-left: 20px;
+}
+
+#clearAll{
+    float: right;
+    height: 20%;
+    margin: auto;
+    margin-left: 60px;
+    
+    outline: none;
+    background: #e94560;
+    border: 0;
+}
+
+#clearAll:hover, #delButton:hover{
+    background: #e22b4a;
+}
+
+#clearAll:active, #delButton:active{
+    background: #c81937;
+    transform: scale(1.2);
+}
+
+#searchBar{
+    height: 20%;
+    padding: 7px 0;
+    padding-bottom: 6px;
+    margin: auto;
+    width: 300px;
+    margin-left: 50px;
+    padding-left: 10px;
+
+    outline: none;
+    border: none;
+    color: #e94560;
+    background: #0f3460;
+}
+
+/* LIST ELEMENT STYLES */
+ul{
+    width: auto;
+}
+
+li{
+    list-style-type: none;
+    width: 80%;
+    height: 39px;
+    margin: 20px 0;
+    margin-right: 0;
+    background-color: #0f3460;
+    color: white;
+}
+
+.listDiv{
+    height: 100%;
+    width: 93%;
+    display: inline-block;
+}
+
+.listText{
+    padding-left: 10px;
+    float: left;
+    width: 90%;
+    height: 39px;
+    padding-top: 2px;
+    margin: 0;
+    margin-bottom: -6px;
+
+    word-wrap: break-word;
+    white-space: nowrap;
+    overflow: hidden;
+
+    cursor: pointer;
+}
+
+.delButton{
+    float: right;
+    height: 39px;
+    width: 40px;
+
+    outline: none;
+    background: #e94560;
+    border: 0px;
+}
+
+/* LIST EXPAND */
+.expandLi{
+    height: auto;
+}
+
+.expandListText{
+    height: auto;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-overflow: clip;
+}
+
+/* UL OVERFLOW */
+#noteRight{
+    overflow-y: scroll;
+}

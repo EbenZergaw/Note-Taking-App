@@ -1,0 +1,73 @@
+#noteLeft{
+    float: left;
+    margin-top: 10px;
+    width: 30%;
+    height: 98.8%;
+    border-radius: 12px;
+    box-shadow: 0px 0px 21px -6px rgba(0,0,0,0.25);
+}
+
+#textField{
+    height: 84%;
+    width: 95%;
+    margin: auto;
+    margin-top: 15px;
+    padding: 10px;
+    margin-left: 15px;
+
+    display: inline-block;
+    color: #e94560;
+    outline: none;
+    overflow-y: scroll;
+
+    border: 1px solid #e9456050;
+}
+
+#noteSubmit{
+    float: right;
+    /* margin-top: 10px; */
+    margin-right: 15px;
+
+    outline: none;
+    font-weight: 300;
+    font-size: 15px;
+    color: #e94560;
+    background: #0f3460;
+    border: 0;
+}
+
+/* TYPO BUTTONS */
+#typoButtons{
+    height: 7%;
+    width: 95%;
+    padding-top: -20px;
+    margin: auto;
+    text-align: left;
+    user-select: none;
+    position: relative;
+    left: 2px;
+
+    border: 1px solid #e9456050;
+}
+
+.fontStyle{
+    margin: auto;
+    margin: 0 10px;
+    margin-top: 7px;
+    padding: 10px 15px;
+
+    outline: none;
+    color: #e94560;
+    background: #0f3460;
+    border: 0;
+    border-radius: 10px;
+}
+
+.fontStyle:hover{
+    box-shadow: 0px 0px 10px -6px #e94560;
+}
+
+.fontStyle:active{
+    font-weight: bold;
+    transition: 0s;
+}

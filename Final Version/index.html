@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="all.css">
+    <link rel="stylesheet" href="noteLeft.css">
+    <link rel="stylesheet" href="noteRight.css">
+    <title>Note Taking App</title>
+</head>
+<body>
+    <div class="container">
+
+        <div id="noteLeft">
+            <div id="typoButtons">
+                <button class="fontStyle" onclick="document.execCommand('italic',false,null);" title="Italicize Highlighted Text"><i>I</i>
+                </button>
+                <button class="fontStyle" onclick="document.execCommand( 'bold',false,null);" title="Bold Highlighted Text"><b>B</b>
+                </button>
+                <button class="fontStyle" onclick="document.execCommand( 'underline',false,null);"><u>U</u>
+            </div>
+
+            <div id="textField" contenteditable="true"></div>
+            <button id="noteSubmit">SUBMIT</button>
+        </div>
+
+        <div id="noteRight">
+            <div id="topBar">
+                <h1>NOTE LIST</h1>
+                <button id="clearAll">CLEAR ALL</button>
+                <input id="searchBar" placeholder="SEARCH" type="text" value="">
+            </div>
+            
+            <ul>
+
+            </ul>
+        </div>
+        
+
+    </div>
+</body>
+<script src="app.js"></script>
+</html>

@@ -1,0 +1,52 @@
+*{
+    font-family: Consolas;
+    line-height: 200%;
+    box-sizing:border-box;           /* easier box-model calculations */
+}
+
+::selection{
+    background: #ff768c;
+    color: #1a1a2e;
+}
+
+body{
+    background: #1a1a2e;
+}
+
+.container{
+    background: #16213e;
+    height: 96vh;
+    width: 92vw;
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 15px;
+}
+
+button{
+    cursor: pointer;
+    user-select: none;
+}
+
+button:hover{
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+button:active{
+    transform: scale(1.15);
+    transition: 0.2s;
+}
+
+h1{
+    color: #e94560;
+    user-select: none;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #e94560;
+}
