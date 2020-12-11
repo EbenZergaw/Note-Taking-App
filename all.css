@@ -1,5 +1,5 @@
 *{
-    font-family: Consolas;
+    font-family: Consolas, roboto, Arial, Helvetica, sans-serif;
     line-height: 200%;
     box-sizing:border-box;           /* easier box-model calculations */
 }
