@@ -1,3 +1,25 @@
+function loadUIvars(){
+    // UI VARIABLES
+    window.userTextValue = document.querySelector("#textField").innerHTML;
+
+    window.li = document.createElement("li");
+    window.listDiv = document.createElement("div");
+    window.listText = document.createElement("div");
+
+    listDiv.className = "listDiv";
+    listText.className = "listText";
+
+    // DELETE BUTTON
+    window.delButton = document.createElement("button");
+    delButton.innerHTML = "X";
+    delButton.className = "delButton";
+
+    // EDIT BUTTON
+    window.editButton = document.createElement("i");
+    editButton.className = "editButton";
+
+}
+
 // EVENT LISTENERS
 loadEventListeners();
 
@@ -15,6 +37,7 @@ function loadEventListeners(){
 }
 
 function getNotes(){
+    loadUIvars();
     let notes;
     if(localStorage.getItem("notes") === null){
         notes = [];
@@ -23,17 +46,7 @@ function getNotes(){
     }
 
     notes.forEach(function(index){
-        
-        const li = document.createElement("li");
-        const listDiv = document.createElement("div");
-        const listText = document.createElement("div");
-        listDiv.className = "listDiv";
-        listText.className = "listText";
-        // DELETE BUTTON
-        const delButton = document.createElement("button");
-        delButton.innerHTML = "X";
-        delButton.className = "delButton";
-
+        loadUIvars();
         listText.innerHTML = index;
         listDiv.appendChild(listText);
         li.appendChild(listDiv);
@@ -43,40 +56,27 @@ function getNotes(){
 }
 
 function submitNote(){
-    // UI VARIABLES
-    const userTextValue = document.querySelector("#textField").innerHTML;
+    loadUIvars();
 
-    const li = document.createElement("li");
-    const listDiv = document.createElement("div");
-    const listText = document.createElement("div");
-
-    listDiv.className = "listDiv";
-    listText.className = "listText";
-
-    // DELETE BUTTON
-    const delButton = document.createElement("button");
-    delButton.innerHTML = "X";
-    delButton.className = "delButton";
-
-// CHECKS IF BLANK
+    // CHECKS IF BLANK
     function isBlank(){
-        // || /^\s*$/.test(userTextValue)
         if(userTextValue.length < 4){
             return true;
         } else {
             return false;
         }
-}
+    }
 
-// CREATES LIST ELEMENT
+    // CREATES LIST ELEMENT
     if(isBlank() === false){
         listText.innerHTML = userTextValue;
         listDiv.appendChild(listText);
         li.appendChild(listDiv);
         li.appendChild(delButton);
+        li.appendChild(editButton);
         document.querySelector("ul").appendChild(li);
 
-// STORES IN LOCAL STORAGE
+    // STORES IN LOCAL STORAGE
         storeNote(userTextValue);
 
         document.querySelector("#textField").innerHTML = "";
@@ -106,7 +106,6 @@ function deleteList(e){
 }
 
 function removeNote(note){
-    console.log("df")
     let notes;
     if(localStorage.getItem("notes") === null){
         notes = [];
@@ -124,11 +123,13 @@ function removeNote(note){
 
 function deleteAll(e){
     if(document.querySelector("ul").childElementCount > 0){
-        confirm("Are You Sure?")
+        var answer = confirm("Are You Sure?");
+    }
+    if(answer === true){
+        while(document.querySelector("ul").firstChild){
+        document.querySelector("ul").lastChild.remove();
     }
 
-    while(document.querySelector("ul").firstChild){
-        document.querySelector("ul").lastChild.remove()
     }
     localStorage.clear();
 }
