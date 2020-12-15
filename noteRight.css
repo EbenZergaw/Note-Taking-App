@@ -53,7 +53,7 @@ ul{
 
 li{
     list-style-type: none;
-    width: 80%;
+    width: 90%;
     height: 39px;
     margin: 20px 0;
     margin-right: 0;
@@ -70,7 +70,7 @@ li{
 .listText{
     padding-left: 10px;
     float: left;
-    width: 90%;
+    width: 80%;
     height: 39px;
     padding-top: 2px;
     margin: 0;
@@ -108,4 +108,10 @@ li{
 /* UL OVERFLOW */
 #noteRight{
     overflow-y: scroll;
+}
+
+/* EDIT BUTTON */
+.editButton{
+    fill: red;
+    height: 50px;
 }
