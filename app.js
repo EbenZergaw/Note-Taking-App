@@ -102,6 +102,17 @@ function submitNote(){
 
 function editNote(e){
     if(e.target.className === "editSpan"){
+        
+        let ul = document.querySelector("ul");
+        let items = ul.getElementsByTagName("li");
+
+        for(let i = 0; i <= items.length - 1; i++){
+            console.log(items[i])
+            if(items[i].classList.contains("editPending")){
+                items[i].classList.remove("editPending")
+            }
+        }
+
         e.target.parentElement.classList.toggle("editPending")
         document.querySelector("#textField").innerHTML = e.target.parentElement.querySelector(".listDiv").firstChild.innerHTML;
         isEditing = true;

@@ -103,7 +103,7 @@ li{
     line-height: 36px;
     position: relative;
     text-align: center;
-    left: 41px;
+    left: 40px;
     user-select: none;
     cursor: pointer;
     background: #16213e;
@@ -112,6 +112,10 @@ li{
 
 .editSpan:hover{
     background: #0f3460;
+}
+
+.editPending{
+    outline: 1px solid #e94560;
 }
 
 /* LIST EXPAND */
