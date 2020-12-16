@@ -1,3 +1,5 @@
+var isEditing = false;
+
 function loadUIvars(){
     // UI VARIABLES
     window.userTextValue = document.querySelector("#textField").innerHTML;
@@ -14,10 +16,9 @@ function loadUIvars(){
     delButton.innerHTML = "X";
     delButton.className = "delButton";
 
-    // EDIT BUTTON
-    window.editButton = document.createElement("i");
-    editButton.className = "editButton";
-
+    window.editSpan = document.createElement("span");
+    editSpan.innerHTML = "EDIT"
+    editSpan.className = "editSpan"
 }
 
 // EVENT LISTENERS
@@ -30,6 +31,8 @@ function loadEventListeners(){
     document.querySelector("#clearAll").addEventListener("click", deleteAll);
     document.body.addEventListener("click", deleteList);
     document.body.addEventListener("click", expand);
+
+    document.body.addEventListener("click", editNote)
 
     document.querySelector("#searchBar").addEventListener("keyup", searchNotes)
 
@@ -51,6 +54,7 @@ function getNotes(){
         listDiv.appendChild(listText);
         li.appendChild(listDiv);
         li.appendChild(delButton);
+        li.appendChild(editSpan);
         document.querySelector("ul").appendChild(li);
     });
 }
@@ -58,29 +62,60 @@ function getNotes(){
 function submitNote(){
     loadUIvars();
 
-    // CHECKS IF BLANK
-    function isBlank(){
-        if(userTextValue.length < 4){
-            return true;
-        } else {
-            return false;
+    if(isEditing === false){
+        // CHECKS IF BLANK
+        function isBlank(){
+            if(userTextValue.length < 4){
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // CREATES LIST ELEMENT
+        if(isBlank() === false){
+            listText.innerHTML = userTextValue;
+            listDiv.appendChild(listText);
+            li.appendChild(listDiv);
+            li.appendChild(delButton);
+            li.appendChild(editSpan);
+            document.querySelector("ul").appendChild(li);
+
+        // STORES IN LOCAL STORAGE
+            storeNote(userTextValue);
+            document.querySelector("#textField").innerHTML = "";
+            } 
+    } else {
+        let notes = JSON.parse(localStorage.getItem("notes"));
+        let replaceIndex = notes.indexOf(document.querySelector(".editPending").firstChild.firstChild.innerHTML);
+
+        document.querySelector(".editPending").firstChild.firstChild.innerHTML = userTextValue;
+        document.querySelector(".editPending").classList.toggle("editPending");
+        document.querySelector("#textField").innerHTML = ""
+
+        notes[replaceIndex] = userTextValue;
+        localStorage.setItem("notes", JSON.stringify(notes));
+        isEditing = false;
+    }
+
+}
+
+function editNote(e){
+    if(e.target.className === "editSpan"){
+        e.target.parentElement.classList.toggle("editPending")
+        document.querySelector("#textField").innerHTML = e.target.parentElement.querySelector(".listDiv").firstChild.innerHTML;
+        isEditing = true;
+    }
+}
+
+function deleteList(e){
+    if(e.target.className.includes("delButton")){
+        if(confirm("Are You Sure?") === true){
+            e.target.parentElement.remove();
+            removeNote(e.target.parentElement);
         }
     }
 
-    // CREATES LIST ELEMENT
-    if(isBlank() === false){
-        listText.innerHTML = userTextValue;
-        listDiv.appendChild(listText);
-        li.appendChild(listDiv);
-        li.appendChild(delButton);
-        li.appendChild(editButton);
-        document.querySelector("ul").appendChild(li);
-
-    // STORES IN LOCAL STORAGE
-        storeNote(userTextValue);
-
-        document.querySelector("#textField").innerHTML = "";
-    } 
 }
 
 function storeNote(note){
@@ -95,17 +130,7 @@ function storeNote(note){
     localStorage.setItem("notes", JSON.stringify(notes))
 }
 
-function deleteList(e){
-    if(e.target.className.includes("delButton")){
-        if(confirm("Are You Sure?") === true){
-            e.target.parentElement.remove();
-            removeNote(e.target.parentElement);
-        }
-    }
-
-}
-
-function removeNote(note){
+function removeNote(){
     let notes;
     if(localStorage.getItem("notes") === null){
         notes = [];
@@ -121,7 +146,7 @@ function removeNote(note){
     localStorage.setItem("notes", JSON.stringify(notes))
 }
 
-function deleteAll(e){
+function deleteAll(){
     if(document.querySelector("ul").childElementCount > 0){
         var answer = confirm("Are You Sure?");
     }

@@ -53,7 +53,7 @@ ul{
 
 li{
     list-style-type: none;
-    width: 90%;
+    width: 80%;
     height: 39px;
     margin: 20px 0;
     margin-right: 0;
@@ -63,7 +63,7 @@ li{
 
 .listDiv{
     height: 100%;
-    width: 93%;
+    width: 80%;
     display: inline-block;
 }
 
@@ -87,10 +87,31 @@ li{
     float: right;
     height: 39px;
     width: 40px;
-
+    position: relative;
+    right: 60px;
+    z-index: 1;
+    transition: 0.5s;
     outline: none;
     background: #e94560;
     border: 0px;
+}
+
+.editSpan{
+    height: 39px;
+    width: 62px;
+    float: right;
+    line-height: 36px;
+    position: relative;
+    text-align: center;
+    left: 41px;
+    user-select: none;
+    cursor: pointer;
+    background: #16213e;
+    transition: 0.5s;
+}
+
+.editSpan:hover{
+    background: #0f3460;
 }
 
 /* LIST EXPAND */
@@ -108,10 +129,4 @@ li{
 /* UL OVERFLOW */
 #noteRight{
     overflow-y: scroll;
-}
-
-/* EDIT BUTTON */
-.editButton{
-    fill: red;
-    height: 50px;
 }
