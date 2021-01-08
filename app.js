@@ -8,6 +8,7 @@ function loadUIvars(){
     window.listDiv = document.createElement("div");
     window.listText = document.createElement("div");
 
+    li.className = "noteRightLi";
     listDiv.className = "listDiv";
     listText.className = "listText";
 
@@ -55,7 +56,7 @@ function getNotes(){
         li.appendChild(listDiv);
         li.appendChild(delButton);
         li.appendChild(editSpan);
-        document.querySelector("ul").appendChild(li);
+        document.querySelector("#noteRightUl").appendChild(li);
     });
 }
 
@@ -79,12 +80,14 @@ function submitNote(){
             li.appendChild(listDiv);
             li.appendChild(delButton);
             li.appendChild(editSpan);
-            document.querySelector("ul").appendChild(li);
+            document.querySelector("#noteRightUl").appendChild(li);
 
         // STORES IN LOCAL STORAGE
             storeNote(userTextValue);
             document.querySelector("#textField").innerHTML = "";
-            } 
+            } else {
+                alert("Enter at least 4 characters")
+            }
     } else {
         let notes = JSON.parse(localStorage.getItem("notes"));
         let replaceIndex = notes.indexOf(document.querySelector(".editPending").firstChild.firstChild.innerHTML);
@@ -107,7 +110,6 @@ function editNote(e){
         let items = ul.getElementsByTagName("li");
 
         for(let i = 0; i <= items.length - 1; i++){
-            console.log(items[i])
             if(items[i].classList.contains("editPending")){
                 items[i].classList.remove("editPending")
             }
@@ -122,8 +124,12 @@ function editNote(e){
 function deleteList(e){
     if(e.target.className.includes("delButton")){
         if(confirm("Are You Sure?") === true){
+            if(isEditing === true){
+                document.querySelector("#textField").innerHTML = ""
+            }
             e.target.parentElement.remove();
             removeNote(e.target.parentElement);
+            isEditing = false;
         }
     }
 
@@ -158,16 +164,16 @@ function removeNote(){
 }
 
 function deleteAll(){
-    if(document.querySelector("ul").childElementCount > 0){
+    if(document.querySelector("#noteRightUl").childElementCount > 0){
         var answer = confirm("Are You Sure?");
     }
     if(answer === true){
-        while(document.querySelector("ul").firstChild){
-        document.querySelector("ul").lastChild.remove();
+        while(document.querySelector("#noteRightUl").firstChild){
+        document.querySelector("#noteRightUl").lastChild.remove();
     }
 
     }
-    localStorage.clear();
+    localStorage.removeItem("notes")
 }
 
 function expand(e){

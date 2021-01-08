@@ -1,20 +1,21 @@
 *{
     font-family: Consolas, roboto, Arial, Helvetica, sans-serif;
     line-height: 200%;
-    box-sizing:border-box;           /* easier box-model calculations */
+    box-sizing:border-box;
+    transition: 0.3s;
 }
 
 ::selection{
-    background: #ff768c;
-    color: #1a1a2e;
+    background: var(--selectBackground);
+    color: var(--selectText);
 }
 
 body{
-    background: #1a1a2e;
+    background: var(--bodyColor);
 }
 
 .container{
-    background: #16213e;
+    background: var(--backgroundColor);
     height: 96vh;
     width: 92vw;
     margin: auto;
@@ -37,16 +38,11 @@ button:active{
     transition: 0.2s;
 }
 
-h1{
-    color: #e94560;
-    user-select: none;
-}
-
 ::-webkit-scrollbar {
     width: 6px;
 }
  
 ::-webkit-scrollbar-thumb {
     border-radius: 10px;
-    background: #e94560;
+    background: var(--mainColor);
 }

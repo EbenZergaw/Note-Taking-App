@@ -1,6 +1,5 @@
 #noteLeft{
     float: left;
-    margin-top: 10px;
     width: 30%;
     height: 98.8%;
     border-radius: 12px;
@@ -16,11 +15,11 @@
     margin-left: 15px;
 
     display: inline-block;
-    color: #e94560;
+    color: var(--mainColor);
     outline: none;
     overflow-y: scroll;
 
-    border: 1px solid #e9456050;
+    border: 1px solid var(--borderColor);
 }
 
 #noteSubmit{
@@ -31,8 +30,8 @@
     outline: none;
     font-weight: 300;
     font-size: 15px;
-    color: #e94560;
-    background: #0f3460;
+    color: var(--mainColor);
+    background: var(--accentColor);
     border: 0;
 }
 
@@ -46,8 +45,8 @@
     user-select: none;
     position: relative;
     left: 2px;
-
-    border: 1px solid #e9456050;
+    top: 7px;
+    border: 1px solid var(--borderColor);
 }
 
 .fontStyle{
@@ -57,14 +56,14 @@
     padding: 2% 3%;
 
     outline: none;
-    color: #e94560;
-    background: #0f3460;
+    color: var(--mainColor);
+    background: var(--accentColor);
     border: 0;
     border-radius: 10px;
 }
 
 .fontStyle:hover{
-    box-shadow: 0px 0px 10px -6px #e94560;
+    box-shadow: 0px 0px 10px -6px var(--mainColor);
 }
 
 .fontStyle:active{

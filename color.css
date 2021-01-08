@@ -1,0 +1,108 @@
+#colorList{
+    width: 7%;
+    height: 80%;
+    float: left;
+    margin-top: 20px;
+}
+
+#colorListBtn{
+    font-size: 16px;
+    display: block;
+    width: 90%;
+    margin: auto;
+    margin-top: 16px;
+    background: transparent;
+    border: none;
+    color: var(--mainColor);
+    outline: none;
+    transition: 0.4s;
+}
+
+#colorListBtn:hover{
+    transform: scale(1);
+    background: var(--accentColor);
+}
+
+#colorList ul{
+    display: none;
+    height: 100%;
+    width: 100%;
+    margin: auto;
+    padding: 0;
+}
+
+.colorListShow{
+    display: block !important;
+}
+
+#colorList li{
+    box-sizing: border-box;
+    list-style-type: none;
+    width: 55%;
+    margin: auto;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0px 0px 21px -6px rgba(0,0,0,0.25);
+}
+
+#colorList li:hover{
+    transform: scale(1.1);
+}
+
+.colorMain{
+    width: 100%;
+    height: 1.8vh;
+}
+
+.colorBackground{
+    width: 100%;
+    height: 1.4vh;
+}
+
+.colorAccent{
+    width: 100%;
+    height: 1vh;
+}
+
+#scheme1 .colorMain{
+    background: #e94560;
+}
+#scheme1 .colorBackground{
+    background: #1a1a2e;
+}
+#scheme1 .colorAccent{
+    background:#0f3460;
+}
+
+
+#scheme2 .colorMain{
+    background: #30362F;
+}
+#scheme2 .colorBackground{
+    background: #fffbdb;
+}
+#scheme2 .colorAccent{
+    background:#DA7422;
+}
+
+
+#scheme3 .colorMain{
+    background: #97dffc;
+}
+#scheme3 .colorBackground{
+    background: #2c0735;
+}
+#scheme3 .colorAccent{
+    background:#858ae3;
+}
+
+
+#scheme4 .colorMain{
+    background: #EDEEC9;
+}
+#scheme4 .colorBackground{
+    background: #98C9A3;
+}
+#scheme4 .colorAccent{
+    background:#BFD8BD;
+}

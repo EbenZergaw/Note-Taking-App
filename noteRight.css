@@ -1,7 +1,12 @@
+h1{
+    color: var(--mainColor);
+    user-select: none;
+}
+
 #noteRight{
     float: right;
-    width: 65%;
-    height: 100%;
+    width: 63%;
+    height: 98.8%;
     border-radius: 12px;
     box-shadow: 0px 0px 21px -6px rgba(0,0,0,0.25);
 }
@@ -16,18 +21,19 @@
     height: 20%;
     margin: auto;
     margin-left: 60px;
-    
+    color: var(--accentColor);
     outline: none;
-    background: #e94560;
+    background: var(--mainColor);
     border: 0;
+    transition: 0.5s;
 }
 
-#clearAll:hover, #delButton:hover{
-    background: #e22b4a;
+#clearAll:hover{
+    transform: scale(1.1);
 }
 
-#clearAll:active, #delButton:active{
-    background: #c81937;
+#clearAll:active{
+    background: var(--buttonHover);
     transform: scale(1.2);
 }
 
@@ -42,22 +48,26 @@
 
     outline: none;
     border: none;
-    color: #e94560;
-    background: #0f3460;
+    color: var(--mainColor);
+    background: var(--accentColor);
+}
+
+#searchBar::placeholder{
+    color: var(--searchPlaceholder);
 }
 
 /* LIST ELEMENT STYLES */
-ul{
+#noteRightUl{
     width: auto;
 }
 
-li{
+.noteRightLi{
     list-style-type: none;
     width: 80%;
     height: 39px;
     margin: 20px 0;
     margin-right: 0;
-    background-color: #0f3460;
+    background-color: var(--accentColor);
     color: white;
 }
 
@@ -76,6 +86,8 @@ li{
     margin: 0;
     margin-bottom: -6px;
 
+    color: var(--listText);
+
     word-wrap: break-word;
     white-space: nowrap;
     overflow: hidden;
@@ -92,7 +104,8 @@ li{
     z-index: 1;
     transition: 0.5s;
     outline: none;
-    background: #e94560;
+    color: var(--accentColor);
+    background: var(--mainColor);
     border: 0px;
 }
 
@@ -106,16 +119,17 @@ li{
     left: 40px;
     user-select: none;
     cursor: pointer;
-    background: #16213e;
+    color: var(--mainColor);
+    background: var(--backgroundColor);
     transition: 0.5s;
 }
 
 .editSpan:hover{
-    background: #0f3460;
+    background: var(--accentColor);
 }
 
 .editPending{
-    outline: 1px solid #e94560;
+    outline: 1px solid var(--mainColor);
 }
 
 /* LIST EXPAND */
