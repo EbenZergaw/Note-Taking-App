@@ -5,7 +5,7 @@
 * Search Functionality 🔍
 * Notes are saved to local storage 💾
 * Color Options 🌈
-***_Font Styles_*** 🔥
+****_Font Styles_*** 🔥
 
 ## Color Schemes
 <div align="center">
