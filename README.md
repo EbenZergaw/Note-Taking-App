@@ -1,3 +1,3 @@
 # Note-Taking-App
 
-![Screenshot](readme-img-presentation.png)
+![Screenshot](https://github.com/EbenZergaw/Note-Taking-App/blob/readme-assets/readme-img-presentation.png)
