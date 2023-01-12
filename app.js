@@ -214,7 +214,8 @@ function expand(e){
 
 function searchNotes(e){
     const text = e.target.value.toLowerCase();
-    document.querySelectorAll("li").forEach(function(note){
+    document.querySelectorAll(".noteRightLi").forEach(function(note){
+        console.log(note);
         const item = note.firstChild.innerHTML;
         if(item.toLowerCase().indexOf(text) != -1){
             note.style.display = "block";
